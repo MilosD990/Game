@@ -200,6 +200,8 @@ class MyGame {
         // Display Restart instructions
         this.ctx.font = '18px "Press Start 2P", cursive';
         this.ctx.fillText('Press "R" to Restart', this.canvas.width / 2 - 85, this.canvas.height / 2 + 120);
+        this.sendScoreToGoogleSheets();
+        console.log('Game Over screen displayed. Preparing to redirect...');
     }
     displayPaused() {
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
@@ -287,6 +289,24 @@ class MyGame {
     startGame() {
         this.gameState = 'game'; // Change game state to 'game'
         this.gameLoop(); // Start the game loop
+    }
+    sendScoreToGoogleSheets() {
+        const url = 'https://script.google.com/macros/s/AKfycbwoFkqhB64-3z_LfyEcoq3uC_jDJre-62CyevoKhbQmH_RhmhYDyTRmfi46s80Aeizf/exec'; // Replace with your deployed Google Apps Script URL
+        const data = new URLSearchParams();
+        data.append('playerName', this.playerName); // Player name
+        data.append('score', this.score.toString()); // Score
+        // Send a POST request to the Google Apps Script
+        fetch(url, {
+            method: 'POST',
+            body: data,
+        })
+            .then(response => response.text())
+            .then(result => {
+            console.log('Score sent successfully:', result);
+        })
+            .catch(error => {
+            console.error('Error sending score:', error);
+        });
     }
 }
 // Initialize the game
