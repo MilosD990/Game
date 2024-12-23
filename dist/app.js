@@ -318,13 +318,13 @@ class MyGame {
     displayMenu() {
         this.ctx.font = '20px "Press Start 2P", cursive';
         this.ctx.fillStyle = 'white';
-        // Create a gray background
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         // Draw the background
         this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
         // Draw the background
         this.ctx.drawImage(this.staticBackgroundImage, 0, 0, this.canvas.width, this.canvas.height);
+        // Create a gray background
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         // Display start prompt text
         this.ctx.font = '20px "Press Start 2P", cursive';
         this.ctx.fillStyle = 'white';
