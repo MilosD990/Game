@@ -12,3 +12,27 @@
     <script src="dist/app.js"></script>
 </body>
 </html>
+
+<form id="scoreForm">
+    Name: <input type="text" id="playerName" required><br>
+    Score: <input type="number" id="playerScore" required><br>
+    <button type="submit">Submit Score</button>
+</form>
+
+<script>
+    document.getElementById('scoreForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const playerName = document.getElementById('playerName').value;
+        const playerScore = document.getElementById('playerScore').value;
+
+        // Send data to Google Apps Script (you'll need to use Google Apps Script API or Fetch API)
+        fetch('https://script.google.com/macros/s/AKfycbwhi_-ZelrJbeVG000nQLODVEGqU0YP4-Z0G4HZR9onQ_C3SL_h6jwhpnXuUZeh-nAd/exec', {
+            method: 'POST',
+            body: JSON.stringify({ name: playerName, score: playerScore }),
+        })
+            .then(response => response.json())
+            .then(data => alert('Score Submitted!'))
+            .catch(error => console.error('Error:', error));
+    });
+</script>
