@@ -291,7 +291,7 @@ class MyGame {
         this.gameLoop(); // Start the game loop
     }
     sendScoreToGoogleSheets() {
-        const url = 'https://script.google.com/macros/s/AKfycbwoFkqhB64-3z_LfyEcoq3uC_jDJre-62CyevoKhbQmH_RhmhYDyTRmfi46s80Aeizf/exec'; // Replace with your deployed Google Apps Script URL
+        const url = 'https://script.google.com/macros/s/AKfycbxwTs8xFlod_sapVPF6iYc8NTvRtgSfVdQcZv89BQqoMzlPpUS3xZlMah7aVlqdZsMb/exec'; // Replace with your deployed Google Apps Script URL
         const data = new URLSearchParams();
         data.append('playerName', this.playerName); // Player name
         data.append('score', this.score.toString()); // Score
