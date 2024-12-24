@@ -319,7 +319,8 @@ class MyGame {
         const font = new FontFace('Press Start 2P', 'url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap)');
         font.load().then(() => {
             console.log('Font loaded successfully');
-            // Draw the background
+            this.ctx.font = '14px "Press Start 2P", cursive'; // Reapply font
+            this.ctx.fillStyle = 'white'; // Reapply text color
             this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
             this.ctx.drawImage(this.staticBackgroundImage, 0, 0, this.canvas.width, this.canvas.height);
             // Create a gray background overlay
@@ -333,8 +334,6 @@ class MyGame {
             this.ctx.fillText('Collect presents for +10 points.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 20);
             this.ctx.fillText('Press "Enter" to Start', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
             this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
-            this.ctx.font = '14px "Press Start 2P", cursive'; // Reapply font
-            this.ctx.fillStyle = 'white'; // Reapply text color
         });
         // Create the text input for the player's name
         const nameInput = document.createElement('input');
