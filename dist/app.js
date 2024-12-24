@@ -33,6 +33,15 @@ class MyGame {
         this.backgroundImage.src = 'assets/background.png'; // Path to the background image
         this.staticBackgroundImage = new Image();
         this.staticBackgroundImage.src = 'assets/static_background.png'; // Path to the background image
+        // Set up the onload event to draw the image once it's loaded
+        this.backgroundImage.onload = () => {
+            // Draw the background image
+            this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
+            // Now draw the text
+            this.drawText.call(this); // Make sure 'this' refers to the current object context
+            // Optionally, handle drawing of other elements or assets
+            this.ctx.drawImage(this.staticBackgroundImage, 0, 0, this.canvas.width, this.canvas.height);
+        };
         // Load the present image
         this.presentImage = new Image();
         this.presentImage.src = 'assets/present.png'; // Path to your present image
@@ -62,6 +71,20 @@ class MyGame {
         this.setupInput();
         // Start the game loop
         this.gameLoop();
+    }
+    drawText() {
+        this.ctx.font = '14px "Press Start 2P", cursive'; // Reapply font
+        this.ctx.fillStyle = 'white'; // Reapply text color
+        // Display start prompt text
+        this.ctx.fillText('Press "A" or "D" to move left or right.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
+        this.ctx.fillText('Press "Space" to jump.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
+        this.ctx.fillText('Press "P" to pause.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 20);
+        this.ctx.fillText('Jump over the building for +1 point,', this.canvas.width / 2 - 240, this.canvas.height / 2);
+        this.ctx.fillText('Collect presents for +10 points.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 20);
+        this.ctx.fillText('Press "Enter" to Start after entering Name.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 40);
+        this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 + 60);
+        this.ctx.font = '14px "Press Start 2P", cursive'; // Reapply font
+        this.ctx.fillStyle = 'white'; // Reapply text color
     }
     setupInput() {
         window.addEventListener('keydown', (e) => {
