@@ -346,7 +346,7 @@ class MyGame {
         const rect = this.canvas.getBoundingClientRect();
         // Position the input inside the canvas, centered below the name prompt
         nameInput.style.left = `${rect.left + this.canvas.width / 2 - 100}px`; // Centered horizontally inside the parent container
-        nameInput.style.top = `${rect.top + this.canvas.height / 2 + 200}px`; // Positioned below the prompt inside the parent container
+        nameInput.style.top = `${rect.top + this.canvas.height / 2 + 400}px`; // Positioned below the prompt inside the parent container
         // Check if the canvas and its parent element are available
         if (this.canvas && this.canvas.parentElement) {
             // Append the input field to the canvas' parent element
