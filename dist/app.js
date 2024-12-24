@@ -335,21 +335,28 @@ class MyGame {
         this.ctx.fillText('Press "Enter" to Start', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
         // Display "Enter Your Name" prompt
         this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
+        this.canvas.style.position = 'relative'; // Set the canvas to be the relative container
         // Create the text input for the player's name
         const nameInput = document.createElement('input');
         nameInput.id = 'playerName';
         nameInput.type = 'text';
-        nameInput.style.position = 'absolute';
+        nameInput.style.position = 'absolute'; // Position relative to the canvas
         nameInput.style.fontSize = '20px';
         nameInput.style.width = '200px'; // Adjust the width to your preference
         nameInput.style.textAlign = 'center'; // Center text inside input box
         // Get the canvas position on the page
         const rect = this.canvas.getBoundingClientRect();
         // Position the input inside the canvas, centered below the name prompt
-        nameInput.style.left = '580px'; // Centered horizontally
-        nameInput.style.top = '580px'; // Positioned below the prompt
-        // Append the input field to the document body
-        document.body.appendChild(nameInput);
+        nameInput.style.left = `${this.canvas.width / 2 + 450}px`; // Centered horizontally
+        nameInput.style.top = `${this.canvas.height / 2 + 250}px`; // Positioned below the prompt
+        // Check if the canvas and its parent element are available
+        if (this.canvas && this.canvas.parentElement) {
+            // Append the input field to the canvas' parent element
+            this.canvas.parentElement.appendChild(nameInput);
+        }
+        else {
+            console.error('Canvas or its parent element is not available.');
+        }
         // Focus the input for user interaction
         nameInput.focus();
         // Listen for the Enter key to start the game and store the name
