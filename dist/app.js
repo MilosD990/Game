@@ -347,7 +347,7 @@ class MyGame {
         const rect = this.canvas.getBoundingClientRect();
         // Position the input inside the canvas, centered below the name prompt
         nameInput.style.left = `${rect.left + this.canvas.width / 2 - 100} px`; // Centered horizontally
-        nameInput.style.top = '580px'; // Positioned below the prompt
+        nameInput.style.top = `${rect.top + this.canvas.height / 2 + 50} px`; // Positioned below the prompt
         // Append the input field to the document body
         document.body.appendChild(nameInput);
         // Focus the input for user interaction
