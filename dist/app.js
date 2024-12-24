@@ -422,7 +422,7 @@ class MyGame {
         this.gameLoop(); // Start the game loop
     }
     sendScoreToGoogleSheets() {
-        const url = 'https://script.google.com/macros/s/AKfycbxBzNiGWR7i5MWsLeJB_-b_Qjab0xgBDA_Hba3aQ-koLNeO2SfTvsxc0j4slp5vORQ/exec'; // Replace with your deployed Google Apps Script URL
+        const url = 'https://script.google.com/macros/s/AKfycbwhiju132lpZaUuTbmAfng0FR2eWXCUWJi65ELpQTRTkACvoQw56kuQPwLuhtVtvaUj/exec'; // Replace with your deployed Google Apps Script URL
         const data = new URLSearchParams();
         data.append('playerName', this.playerName); // Player name
         data.append('score', this.score.toString()); // Score
