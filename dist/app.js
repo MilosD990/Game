@@ -425,5 +425,7 @@ class MyGame {
         });
     }
 }
-// Initialize the game
-const game = new MyGame();
+window.addEventListener('load', function () {
+    // Initialize your game logic here
+    new MyGame();
+});
