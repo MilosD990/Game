@@ -191,7 +191,6 @@ class MyGame {
             // Increase the difficulty level (used for spawning new enemies)
             this.difficulty += 1;
             this.spawnInterval -= this.spawnInterval * 0.2;
-            console.log(`Increased difficulty at score: ${this.score}`); // Optional: Log when difficulty is increased
         }
     }
     updateEnemies() {
@@ -328,9 +327,14 @@ class MyGame {
         // Display start prompt text
         this.ctx.font = '20px "Press Start 2P", cursive';
         this.ctx.fillStyle = 'white';
-        this.ctx.fillText('Press "Enter" to Start', this.canvas.width / 2 - 240, this.canvas.height / 2 - 20);
+        this.ctx.fillText('Press "A" or "D" to move left or right.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 60);
+        this.ctx.fillText('Press "Space" to jump.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 40);
+        this.ctx.fillText('Press "P" to pause.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 20);
+        this.ctx.fillText('Jump over the building for +1 point,', this.canvas.width / 2 - 240, this.canvas.height / 2);
+        this.ctx.fillText('Collect presents for +10 points.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 20);
+        this.ctx.fillText('Press "Enter" to Start', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
         // Display "Enter Your Name" prompt
-        this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 + 30);
+        this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
         // Create the text input for the player's name
         const nameInput = document.createElement('input');
         nameInput.id = 'playerName';
@@ -342,8 +346,8 @@ class MyGame {
         // Get the canvas position on the page
         const rect = this.canvas.getBoundingClientRect();
         // Position the input inside the canvas, centered below the name prompt
-        nameInput.style.left = `${rect.left + this.canvas.width / 2 - 100}px`; // Centered horizontally
-        nameInput.style.top = `${rect.top + this.canvas.height / 2 + 50}px`; // Positioned below the prompt
+        nameInput.style.left = `${rect.left + this.canvas.width / 2 - 100} px`; // Centered horizontally
+        nameInput.style.top = '580px'; // Positioned below the prompt
         // Append the input field to the document body
         document.body.appendChild(nameInput);
         // Focus the input for user interaction
@@ -419,7 +423,7 @@ class MyGame {
             y: randomHeight,
             width: presentWidth,
             height: presentHeight,
-            velocityX: 15, // Move towards player at velocity 15
+            velocityX: 10, // Move towards player at velocity 15
         });
     }
 }
