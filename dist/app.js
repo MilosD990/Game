@@ -316,7 +316,7 @@ class MyGame {
     }
     // In your displayMenu or related function
     displayMenu() {
-        this.ctx.font = '20px "Press Start 2P", cursive';
+        this.ctx.font = '14px "Press Start 2P", cursive';
         this.ctx.fillStyle = 'white';
         // Draw the background
         this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
