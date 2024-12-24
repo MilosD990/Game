@@ -335,22 +335,31 @@ class MyGame {
         this.ctx.fillText('Press "Enter" to Start', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
         // Display "Enter Your Name" prompt
         this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
+        // Create the text input for the player's name
         const nameInput = document.createElement('input');
         nameInput.id = 'playerName';
         nameInput.type = 'text';
-        nameInput.style.position = 'absolute'; // Position relative to the canvas' parent container
+        nameInput.style.position = 'absolute'; // Position relative to the parent container
         nameInput.style.fontSize = '20px';
         nameInput.style.width = '200px'; // Adjust the width to your preference
         nameInput.style.textAlign = 'center'; // Center text inside input box
-        // Get the canvas position on the page (relative to the parent container)
+        // Get the canvas' position and dimensions
         const rect = this.canvas.getBoundingClientRect();
-        // Position the input inside the canvas, centered below the name prompt
-        nameInput.style.left = `${rect.left + this.canvas.width / 2 - 100}px`; // Centered horizontally inside the parent container
-        nameInput.style.top = `${rect.top + this.canvas.height / 2 + 400}px`; // Positioned below the prompt inside the parent container
-        // Check if the canvas and its parent element are available
-        if (this.canvas && this.canvas.parentElement) {
-            // Append the input field to the canvas' parent element
-            this.canvas.parentElement.appendChild(nameInput);
+        // Get the parent container's offset position
+        const canvasParent = this.canvas.parentElement;
+        // Ensure the parent element has the correct position context
+        if (canvasParent) {
+            canvasParent.style.position = 'relative'; // Make sure parent has relative positioning
+        }
+        // Calculate the position based on canvas' position inside its container
+        const canvasLeft = rect.left + window.scrollX;
+        const canvasTop = rect.top + window.scrollY;
+        // Calculate center position relative to the canvas
+        nameInput.style.left = `${canvasLeft + (this.canvas.width / 2) - 100}px`; // Center horizontally
+        nameInput.style.top = `${canvasTop + (this.canvas.height / 2) + 50}px`; // Position below the canvas
+        // Append the input field to the canvas' parent element
+        if (canvasParent) {
+            canvasParent.appendChild(nameInput);
         }
         else {
             console.error('Canvas or its parent element is not available.');
