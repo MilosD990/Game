@@ -316,28 +316,34 @@ class MyGame {
     }
     // In your displayMenu or related function
     displayMenu() {
-        this.ctx.font = '14px "Press Start 2P", cursive';
-        this.ctx.fillStyle = 'white';
-        // Draw the background
-        this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.drawImage(this.staticBackgroundImage, 0, 0, this.canvas.width, this.canvas.height);
-        // Create a gray background overlay
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-        // Display start prompt text
-        this.ctx.fillText('Press "A" or "D" to move left or right.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 60);
-        this.ctx.fillText('Press "Space" to jump.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 40);
-        this.ctx.fillText('Press "P" to pause.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 20);
-        this.ctx.fillText('Jump over the building for +1 point,', this.canvas.width / 2 - 240, this.canvas.height / 2);
-        this.ctx.fillText('Collect presents for +10 points.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 20);
-        this.ctx.fillText('Press "Enter" to Start', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
-        this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
+        const font = new FontFace('Press Start 2P', 'url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap)');
+        font.load().then(() => {
+            console.log('Font loaded successfully');
+            // Draw the background
+            this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.drawImage(this.staticBackgroundImage, 0, 0, this.canvas.width, this.canvas.height);
+            // Create a gray background overlay
+            this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            // Display start prompt text
+            this.ctx.fillText('Press "A" or "D" to move left or right.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 60);
+            this.ctx.fillText('Press "Space" to jump.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 40);
+            this.ctx.fillText('Press "P" to pause.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 20);
+            this.ctx.fillText('Jump over the building for +1 point,', this.canvas.width / 2 - 240, this.canvas.height / 2);
+            this.ctx.fillText('Collect presents for +10 points.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 20);
+            this.ctx.fillText('Press "Enter" to Start', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
+            this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
+            this.ctx.font = '14px "Press Start 2P", cursive'; // Reapply font
+            this.ctx.fillStyle = 'white'; // Reapply text color
+        });
         // Create the text input for the player's name
         const nameInput = document.createElement('input');
         nameInput.id = 'playerName';
         nameInput.type = 'text';
         nameInput.style.position = 'absolute';
-        nameInput.style.fontSize = '20px';
+        nameInput.style.fontSize = '12px';
+        nameInput.style.fontFamily = '"Press Start 2P", cursive';
+        nameInput.style.color = 'black';
         nameInput.style.width = '200px'; // Adjust the width to your preference
         nameInput.style.textAlign = 'center'; // Center text inside input box
         // Get the canvas container position on the page
