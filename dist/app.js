@@ -250,9 +250,9 @@ class MyGame {
             this.ctx.drawImage(this.presentImage, present.x, present.y, present.width, present.height);
         }
         // Draw the score
-        this.ctx.fillText('Score: ' + this.score, 10, 30);
+        this.ctx.fillText('Score: ' + this.score, 600, 30);
         // Draw the high score
-        this.ctx.fillText('High Score: ' + this.highScore, 10, 60);
+        this.ctx.fillText('High Score: ' + this.highScore, 500, 60);
     }
     spawnEnemy() {
         const enemyWidth = 70;
@@ -304,17 +304,21 @@ class MyGame {
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         // Display Game Over text
-        this.ctx.font = '40px "Press Start 2P", cursive';
-        this.ctx.fillStyle = 'white';
-        this.ctx.fillText('Game Over!', this.canvas.width / 2 - 160, this.canvas.height / 2 - 40);
+        this.ctx.font = '14px "Press Start 2P", cursive';
+        this.ctx.fillStyle = 'green';
+        this.ctx.fillText('Your BIM Team wishes you Merry Christmas,', this.canvas.width / 2 - 300, this.canvas.height / 2 - 60);
+        this.ctx.fillText('and a Happy New Year!', this.canvas.width / 2 - 300, this.canvas.height / 2 - 40);
+        this.ctx.fillText('Looking forward to jumping over many', this.canvas.width / 2 - 300, this.canvas.height / 2 - 20);
+        this.ctx.fillText('more obstacles together!', this.canvas.width / 2 - 300, this.canvas.height / 2);
         // Display Final Score
-        this.ctx.font = '20px "Press Start 2P", cursive';
-        this.ctx.fillText('Final Score: ' + this.score, this.canvas.width / 2 - 160, this.canvas.height / 2);
+        this.ctx.font = '14px "Press Start 2P", cursive';
+        this.ctx.fillStyle = 'white';
+        this.ctx.fillText('Final Score: ' + this.score, this.canvas.width / 2 - 300, this.canvas.height / 2 + 60);
         // Display High Score
-        this.ctx.fillText('High Score: ' + this.highScore, this.canvas.width / 2 - 160, this.canvas.height / 2 + 40);
+        this.ctx.fillText('High Score: ' + this.highScore, this.canvas.width / 2 - 300, this.canvas.height / 2 + 80);
         // Display Restart instructions
-        this.ctx.font = '18px "Press Start 2P", cursive';
-        this.ctx.fillText('Press "R" to Restart', this.canvas.width / 2 - 160, this.canvas.height / 2 + 80);
+        this.ctx.font = '14px "Press Start 2P", cursive';
+        this.ctx.fillText('Press "R" to Restart', this.canvas.width / 2 - 300, this.canvas.height / 2 + 100);
         this.sendScoreToGoogleSheets();
         console.log('Game Over screen displayed. Preparing to redirect...');
     }
