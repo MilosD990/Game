@@ -324,16 +324,16 @@ class MyGame {
             this.ctx.drawImage(this.backgroundImage, 0, 0, this.canvas.width, this.canvas.height);
             this.ctx.drawImage(this.staticBackgroundImage, 0, 0, this.canvas.width, this.canvas.height);
             // Create a gray background overlay
-            this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+            this.ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
             this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
             // Display start prompt text
-            this.ctx.fillText('Press "A" or "D" to move left or right.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 60);
-            this.ctx.fillText('Press "Space" to jump.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 40);
-            this.ctx.fillText('Press "P" to pause.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 20);
+            this.ctx.fillText('Press "A" or "D" to move left or right.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
+            this.ctx.fillText('Press "Space" to jump.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
+            this.ctx.fillText('Press "P" to pause.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 20);
             this.ctx.fillText('Jump over the building for +1 point,', this.canvas.width / 2 - 240, this.canvas.height / 2);
-            this.ctx.fillText('Collect presents for +10 points.', this.canvas.width / 2 - 240, this.canvas.height / 2 - 20);
-            this.ctx.fillText('Press "Enter" to Start', this.canvas.width / 2 - 240, this.canvas.height / 2 - 40);
-            this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 - 60);
+            this.ctx.fillText('Collect presents for +10 points.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 20);
+            this.ctx.fillText('Press "Enter" to Start after entering Name.', this.canvas.width / 2 - 240, this.canvas.height / 2 + 40);
+            this.ctx.fillText('Enter Your Name:', this.canvas.width / 2 - 240, this.canvas.height / 2 + 60);
         });
         // Create the text input for the player's name
         const nameInput = document.createElement('input');
